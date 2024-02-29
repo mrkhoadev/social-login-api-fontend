@@ -17,7 +17,7 @@ export const handleCallback = async (
 	thisUrl
 ) => {
 	const queryParams = thisUrl.slice(thisUrl.indexOf('?') + 1);
-	const res = await fetch(`https://social-login-api-fontend.vercel.app${accessLinks[provider]}?${queryParams}`);
+	const res = await fetch(`${SERVER_URL}${accessLinks[provider]}?${queryParams}`);
 	if (res.ok) {
 		const { data: { accessToken } } = await res.json();
 		return accessToken;
