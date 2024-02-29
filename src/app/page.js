@@ -11,6 +11,7 @@ import { providers } from "./configs";
 export default function Home() {
   const [profile, setProfile] = useState();
   const [userList, setUserList] = useState();
+  const [isRender, setISRender] = useState(false);
 	const handleRedirect = async (provider) => {
 		const redirect = await handleGetRedirect(provider);
 		if (redirect) {
@@ -31,11 +32,14 @@ export default function Home() {
 		}
 	};
 	useEffect(() => {
-    if (localStorage.accessToken) {
+		setISRender(true);
+    	if (localStorage.accessToken) {
 			handleLogin(localStorage.accessToken);
 		}
 	}, []);
-  
+  if (!isRender) {
+	return <h1>Loading...</h1>
+  }
   return (
 		<div className='flex items-center flex-col gap-4 mt-4 container mx-auto'>
 			{!profile ? (
