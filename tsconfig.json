@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/helpers/alertify.js"  ],
   "exclude": [
     "node_modules"
   ]
