@@ -68,6 +68,7 @@ const Table = ({ data, setUserList }) => {
                 <div className={`${tableClass.col_2}`}>
                   <div className='max-w-[150px] w-[50px] h-[50px] max-h-[auto] shadow-md relative'>
                     <Link href={`/${item.id}`}>
+                      {item.thumbnail && ( 
                       <Image
                         src={item.thumbnail}
                         layout="fill"
@@ -75,7 +76,8 @@ const Table = ({ data, setUserList }) => {
                         alt={item.name}
                         className='mx-auto'
                         sizes='100%'
-                      />
+                      /> )
+                      }
                     </Link>
                   </div>
                   <Link href={`/${item.id}`}>

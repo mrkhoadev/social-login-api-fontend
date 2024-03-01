@@ -28,7 +28,7 @@ const Details = ({ params }) => {
   return (
     <div className='container p-5'>
         <div className="flex items-center justify-start mb-2 gap-x-5">
-            <Image src={user.thumbnail} alt={user.name} priority width={100} height={100} />
+            {user.thumbnail && <Image src={user.thumbnail} alt={user.name} priority width={100} height={100} />}
             <ul>
               <li>name: {user.name}</li>
               <li>email: {user.email}</li>

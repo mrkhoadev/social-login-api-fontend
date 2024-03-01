@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "set PORT=8888 && next dev",
     "build": "rm -rf .next && next build",
-    "start": "next start",
+    "start": "next start -p 8888",
     "lint": "next lint"
   },
   "dependencies": {

@@ -25,7 +25,7 @@ export default function Home() {
     ]);
 
     if (profile) {
-      setProfile(profile);
+      setProfile(profile);	
       setUserList(userList);
     } else {
       localStorage.removeItem("accessToken");
@@ -54,13 +54,17 @@ export default function Home() {
       ) : (
         <div className="flex-1">
           <div className="flex items-center justify-start mb-2 gap-x-5">
-            <Image
-              src={profile.thumbnail}
-              alt={profile.name}
-              priority
-              width={100}
-              height={100}
-            />
+			{
+				profile.thumbnail && (
+					<Image
+						src={profile.thumbnail}
+						alt={profile.name}
+						priority
+						width={100}
+						height={100}
+					/>
+				)
+			}
             <ul>
               <li>name: {profile.name}</li>
               <li>email: {profile.email}</li>
@@ -74,9 +78,7 @@ export default function Home() {
                       return (
                         <p
                           key={index}
-                          className={`bg-${
-                            !index ? "blue" : "green"
-                          }-400 px-4 py-1 rounded-md text-white`}
+                          className={`${!index ? "bg-blue-400" : "bg-green-400"} px-4 py-1 rounded-md text-white`}
                         >
                           {" "}
                           {provider} đã đăng ký{" "}
@@ -86,9 +88,7 @@ export default function Home() {
                     return (
                       <p
                         key={index}
-                        className={`bg-${
-                          !index ? "blue" : "green"
-                        }-400 px-4 py-1 rounded-md text-white`}
+                        className={`${!index ? "bg-blue-400" : "bg-green-400"} px-4 py-1 rounded-md text-white`}
                       >
                         {" "}
                         {provider} chưa đăng ký{" "}
